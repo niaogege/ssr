@@ -2,7 +2,7 @@
  * @Author: Chendapeng
  * @Date: 2021-09-12 19:50:27
  * @LastEditors: Chendapeng
- * @LastEditTime: 2022-09-09 17:00:49
+ * @LastEditTime: 2022-09-24 14:50:11
  * @Description:
  */
 import express from "express";
@@ -18,7 +18,6 @@ app.use(express.static("public"));
 
 app.get("*", function (req, res) {
   const store = getStore();
-  console.log(store, "-----STORE");
   // 调用matchRoutes用来匹配当前路由(支持多级路由)
   // 根据路由的路径，来往store里面加数据
   const matchedRoutes = matchRoutes(routes, req.path);

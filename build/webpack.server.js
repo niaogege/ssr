@@ -2,7 +2,7 @@
  * @Author: Chendapeng
  * @Date: 2021-09-12 20:05:50
  * @LastEditors: Chendapeng
- * @LastEditTime: 2022-09-09 16:23:57
+ * @LastEditTime: 2022-09-24 21:08:35
  * @Description: 服务端配置代码
  */
 // 排除不需要的打包模块
@@ -30,7 +30,11 @@ module.exports = merge(common, {
           {
             loader: "css-loader",
             options: {
-              modules: true,
+              importLoaders: 1,
+              esModule: false,
+              modules: {
+                localIdentName: "[name]__[local]___[hash:base64:5]",
+              },
             },
           },
         ],

@@ -2,7 +2,7 @@
  * @Author: Chendapeng
  * @Date: 2021-10-17 16:59:31
  * @LastEditors: Chendapeng
- * @LastEditTime: 2022-09-09 14:53:29
+ * @LastEditTime: 2022-09-24 14:27:45
  * @Description: 公共路由
  */
 import Client from "./client/components/shadow";
@@ -37,6 +37,7 @@ export const routes = [
 
 export default [
   {
+    path: "/",
     component: App,
     routes,
   },

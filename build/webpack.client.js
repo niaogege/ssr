@@ -2,7 +2,7 @@
  * @Author: Chendapeng
  * @Date: 2021-09-12 18:04:38
  * @LastEditors: Chendapeng
- * @LastEditTime: 2022-09-09 16:33:12
+ * @LastEditTime: 2022-09-24 22:31:50
  * @Description:
  */
 const { merge } = require("webpack-merge");
@@ -38,11 +38,16 @@ module.exports = merge(common, {
       {
         test: /\.css?$/,
         use: [
-          "style-loader",
+          // "style-loader",
+          "isomorphic-style-loader",
           {
             loader: "css-loader",
             options: {
-              modules: true,
+              importLoaders: 1,
+              esModule: false,
+              modules: {
+                localIdentName: "[name]__[local]___[hash:base64:5]",
+              },
             },
           },
         ],
