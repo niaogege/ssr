@@ -2,7 +2,7 @@
  * @Author: Chendapeng
  * @Date: 2021-10-17 21:12:57
  * @LastEditors: Chendapeng
- * @LastEditTime: 2022-09-24 22:32:29
+ * @LastEditTime: 2022-09-25 17:31:40
  * @Description: 构建服务端路由
  */
 
@@ -12,6 +12,8 @@ import StyleContext from "isomorphic-style-loader/StyleContext";
 import React from "react";
 import { Provider } from "react-redux";
 import { renderRoutes } from "react-router-config";
+import { Helmet } from "react-helmet";
+
 export const render = (store, routes, req, context) => {
   const css = new Set(); // CSS for all rendered React components
   const insertCss = (...styles) =>
@@ -27,13 +29,17 @@ export const render = (store, routes, req, context) => {
     </Provider>
   );
 
+  //拿到helmet对象，然后在html字符串中引入
+  const helmet = Helmet.renderStatic();
+
   // const cssStr = context.css.length ? context.css.join("\n") : "";
-  console.log([...css].join(""), "CSS ssr");
   // console.log(cssStr, "cssStrcssStr");
   return `
     <html>
     <head>
-    <title>ssr Title cpp</title>
+    <meta charset="utf-8">
+    ${helmet.title.toString()}
+    ${helmet.meta.toString()}
     <style>
     ${[...css].join("")}
     </style>

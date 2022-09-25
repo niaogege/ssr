@@ -2,7 +2,7 @@
  * @Author: Chendapeng
  * @Date: 2021-09-12 20:05:50
  * @LastEditors: Chendapeng
- * @LastEditTime: 2022-09-24 21:08:35
+ * @LastEditTime: 2022-09-25 14:25:19
  * @Description: 服务端配置代码
  */
 // 排除不需要的打包模块
@@ -24,7 +24,7 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.css?$/,
+        test: /\.(css|less)$/,
         use: [
           "isomorphic-style-loader",
           {
@@ -37,6 +37,7 @@ module.exports = merge(common, {
               },
             },
           },
+          "less-loader",
         ],
       },
     ],

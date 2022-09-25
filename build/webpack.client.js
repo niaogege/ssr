@@ -2,7 +2,7 @@
  * @Author: Chendapeng
  * @Date: 2021-09-12 18:04:38
  * @LastEditors: Chendapeng
- * @LastEditTime: 2022-09-24 22:31:50
+ * @LastEditTime: 2022-09-25 14:25:10
  * @Description:
  */
 const { merge } = require("webpack-merge");
@@ -36,7 +36,7 @@ module.exports = merge(common, {
       // },
       // 编译css，自动添加前缀，抽取css到独立文件
       {
-        test: /\.css?$/,
+        test: /\.(css|less)$/,
         use: [
           // "style-loader",
           "isomorphic-style-loader",
@@ -50,6 +50,7 @@ module.exports = merge(common, {
               },
             },
           },
+          "less-loader",
         ],
       },
     ],

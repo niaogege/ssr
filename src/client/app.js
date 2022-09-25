@@ -2,7 +2,7 @@
  * @Author: Chendapeng
  * @Date: 2021-09-12 18:18:03
  * @LastEditors: Chendapeng
- * @LastEditTime: 2022-09-24 22:35:25
+ * @LastEditTime: 2022-09-25 11:39:27
  * @Description:
  */
 import React from "react";
@@ -16,7 +16,6 @@ import StyleContext from "isomorphic-style-loader/StyleContext";
 
 const insertCss = (...styles) => {
   const removeCss = styles.map((style) => {
-    console.log(style, "remove style", style._insertCss());
     return style._insertCss();
   });
   return () => removeCss.forEach((dispose) => dispose());

@@ -2,7 +2,7 @@
  * @Author: Chendapeng
  * @Date: 2021-11-07 21:27:13
  * @LastEditors: Chendapeng
- * @LastEditTime: 2022-09-24 22:34:29
+ * @LastEditTime: 2022-09-25 17:04:21
  * @Description: Home
  */
 
@@ -10,7 +10,8 @@ import React, { Component, useEffect } from "react";
 import { connect } from "react-redux";
 import { getHomeList } from "./store/action";
 import withStyles from "isomorphic-style-loader/withStyles";
-import styles from "./index.css";
+import styles from "./index.less";
+import Seo from "../../components/helmet";
 const Home = ({ getHomeList, list = [], staticContext }) => {
   useEffect(() => {
     if (!list.length) {
@@ -18,16 +19,19 @@ const Home = ({ getHomeList, list = [], staticContext }) => {
     }
   }, [getHomeList]);
   return (
-    <div className={styles.home}>
-      <ul>
-        {list.length &&
-          list.map((e) => (
-            <div className={styles.title} key={e.id}>
-              {e.title}
-            </div>
-          ))}
-      </ul>
-    </div>
+    <>
+      <Seo title="title this is Home" meta="meta home" />
+      <div className={styles.home}>
+        <ul>
+          {list.length &&
+            list.map((e) => (
+              <div className={styles.title} key={e.id}>
+                <span>{e.title}</span>
+              </div>
+            ))}
+        </ul>
+      </div>
+    </>
   );
 };
 
@@ -78,7 +82,7 @@ const exportHome = connect(
   mapDispatchToProps
 )(withStyles(styles)(Home));
 
-exportHome.loadData = (store) => {
+exportHome.getInitProps = (store) => {
   return store.dispatch(getHomeList());
 };
 export default exportHome;

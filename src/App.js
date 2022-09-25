@@ -1,6 +1,7 @@
 import React from "react";
 import { renderRoutes } from "react-router-config";
 import Nav from "./components/nav";
+import Seo from "./components/helmet";
 /**
  * 页面公用一个Nav组件
  * @param {*} props
@@ -9,7 +10,8 @@ import Nav from "./components/nav";
 const App = (props) => {
   return (
     <>
-      <h1>This is Main App</h1>
+      {/* 兜底头部 */}
+      <Seo title="APP Home" meta="APP meta" />
       <Nav />
       {renderRoutes(props.route.routes)}
     </>

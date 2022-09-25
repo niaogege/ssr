@@ -2,18 +2,21 @@
  * @Author: Chendapeng
  * @Date: 2021-09-12 18:28:57
  * @LastEditors: Chendapeng
- * @LastEditTime: 2021-10-17 19:49:09
- * @Description: 
+ * @LastEditTime: 2022-09-25 14:58:07
+ * @Description:
  */
-import React from 'react'
-
+import React from "react";
+import Seo from "../../components/helmet";
 const Shadow = () => {
   return (
-    <div>
-       <h2 onClick={ () => alert(111)}>client</h2>
-        this is shadow <br/>
+    <>
+      <Seo title="client title this is Home" meta="client meta home" />
+      <div>
+        <h2 onClick={() => alert(111)}>client</h2>
+        this is shadow <br />
         shadow component is public Component
-    </div>
-  )
-}
-export default Shadow
+      </div>
+    </>
+  );
+};
+export default Shadow;
