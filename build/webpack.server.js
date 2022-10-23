@@ -2,7 +2,7 @@
  * @Author: Chendapeng
  * @Date: 2021-09-12 20:05:50
  * @LastEditors: Chendapeng
- * @LastEditTime: 2022-09-25 14:25:19
+ * @LastEditTime: 2022-10-16 23:38:16
  * @Description: 服务端配置代码
  */
 // 排除不需要的打包模块
@@ -15,6 +15,7 @@ const common = require("./webpack.common");
 module.exports = merge(common, {
   mode: "development",
   target: "node",
+  devtool: "cheap-source-map",
   entry: path.resolve(__dirname, "../src/server/index.js"),
   output: {
     filename: "bundle.js",

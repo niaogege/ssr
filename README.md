@@ -1,3 +1,16 @@
+---
+title: ssr服务端渲染
+order: 0
+group:
+  title: ssr
+  order: 0
+  path: /node/ssr
+nav:
+  order: 5
+  title: "node"
+  path: /node
+---
+
 > 简历中有写道，可能是亮点，既然是亮点就要对得起面试官
 
 ## 可能需要问到的问题
@@ -5,14 +18,16 @@
 - react ssr 是在什么场景下做的？
 - react ssr 双端怎么做构建的？区别在哪里？
 - 有没有做过同构组件？服务端和客户端怎么同步状态的？
+- SSR 的实现原理是什么？
 - 为啥需要同构？
 - **render** 和 **renderToString** 的底层实现上的区别？
 - 客户端怎么处理 JS 事件失效的问题？客户端不重新加载 JS 的情况下怎么实现？
 - 做服务端渲染的时候有没有遇到过比较难的点？
 - react ssr 和 **ejs** 性能的差异？
-- SSR 的实现原理是什么？
 - React SSR 是怎么实现的？
 - Next.js/Nuxt.js
+- award.js 非登录态 ssr 登录态 csr 如何做到？
+- 如何调试 ssr?
 
 ## 什么是服务端渲染
 
@@ -20,7 +35,7 @@
 
 csr 和 ssr 最大的区别在于前者页面渲染是由 js 负责进行的，而后者则是由服务端直接返回 html 让浏览器直接渲染
 
-服务器端渲染和客户端渲染的差异，决定了服务器端渲染在 爬虫 关键词爬取的精准度上会远胜客户端渲染，使得站点更容易获得相关关键词更高的排名。
+服务器端渲染和客户端渲染的差异，决定了服务器端渲染在**爬虫** 关键词爬取的精准度上会远胜客户端渲染，使得站点更容易获得相关关键词更高的排名。
 
 ### 同构
 
@@ -81,7 +96,7 @@ export const render = (store, routes, req) => {
 };
 ```
 
-index.js 如何生成的呢，这个是由 client 端 webpack 打包生成的,先是在 client 端引入 react-dom
+index.js 如何生成的呢，这个是由 client 端 webpack 打包生成的,先是在 client 端引入 **react-dom**
 
 ```js
 // client/app.js
@@ -122,7 +137,7 @@ module.exports = merge(common, {
 
 #### 注水 Hydrate
 
-服务端拿到数据之后注入到 windows，也就是塞到 window 全局环境中将服务端渲染的数据放到 script 中的**window.context**
+服务端拿到数据之后注入到 **客户端 html** 文本里，也就是塞到 window 全局环境中将服务端渲染的数据放到 script 中的**window.context**
 
 ```js
 //
@@ -218,6 +233,8 @@ ReactDom.hydrate(<App />, document.getElementById("app"));
 而通过 a 标签，或者原生方式打开一个新页面的时候，才会进行服务器端路由的跳转，使用服务器端渲染。
 
 ## 手写 react ssr
+
+见代码仓库[react ssr](https://github.com/niaogege/ssr)
 
 ## 参考
 

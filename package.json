@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "client": "webpack-dev-server --config build/webpack.client.js --hot ",
     "dev:server": "webpack --config build/webpack.server.js --watch",
     "dev:client": "webpack --config build/webpack.client.js --watch",
     "dev:start": "nodemon --watch build --exec node dist/bundle.js",

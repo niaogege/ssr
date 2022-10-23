@@ -2,7 +2,7 @@
  * @Author: Chendapeng
  * @Date: 2021-09-12 19:50:27
  * @LastEditors: Chendapeng
- * @LastEditTime: 2022-09-25 17:18:10
+ * @LastEditTime: 2022-10-23 12:37:51
  * @Description:
  */
 import express from "express";
@@ -35,7 +35,6 @@ app.get("*", function (req, res) {
 
   Promise.all(promises)
     .then((data) => {
-      console.log(data, "DATA");
       let context = { css: [] };
       const html = render(store, routes, req, context);
       if (context.action === "REPLACE") {

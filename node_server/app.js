@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 
 app.all("*", function (req, res, next) {
-  console.log(req, "REQ");
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",

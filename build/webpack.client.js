@@ -2,7 +2,7 @@
  * @Author: Chendapeng
  * @Date: 2021-09-12 18:04:38
  * @LastEditors: Chendapeng
- * @LastEditTime: 2022-09-25 14:25:10
+ * @LastEditTime: 2022-10-16 11:10:28
  * @Description:
  */
 const { merge } = require("webpack-merge");
@@ -13,6 +13,7 @@ const htmlWebpackPlugin = require("html-webpack-plugin"); // 复制并压缩html
 module.exports = merge(common, {
   mode: "development",
   entry: path.resolve(__dirname, "../src/client/app.js"),
+  devtool: "source-map",
   output: {
     path: path.resolve(__dirname, "../public"),
     filename: "index.js",
